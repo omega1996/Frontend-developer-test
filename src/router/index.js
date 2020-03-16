@@ -5,11 +5,12 @@ import Article from '@/views/Article'
 Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Article',
-      component: Article
-    }
-  ]
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'Article',
+            component: Article
+        }
+    ]
 })
