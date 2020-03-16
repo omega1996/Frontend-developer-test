@@ -1,19 +1,56 @@
 {
   "name": "frontend-developer-test",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
+  "author": "",
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/omega1996/Frontend-developer-test.git"
+  "main": "index.js",
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11"
   },
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-eslint": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "_id": "frontend-developer-test@1.0.0",
   "bugs": {
     "url": "https://github.com/omega1996/Frontend-developer-test/issues"
   },
-  "homepage": "https://github.com/omega1996/Frontend-developer-test#readme"
+  "homepage": "https://github.com/omega1996/Frontend-developer-test#readme",
+  "license": "ISC",
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omega1996/Frontend-developer-test.git"
+  }
 }
