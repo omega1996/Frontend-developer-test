@@ -1,0 +1,19 @@
+{
+  "name": "frontend-developer-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omega1996/Frontend-developer-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omega1996/Frontend-developer-test/issues"
+  },
+  "homepage": "https://github.com/omega1996/Frontend-developer-test#readme"
+}
