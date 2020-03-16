@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="article">
         <router-link class="article-title" to="/"> Lorem ipsum dolor sit amet, consectetur
             adipisicing elit. Cum doloremque obcaecati quisquam
             reprehenderit soluta. Alias cum iure minima molestiae
@@ -19,7 +19,6 @@
 import {mapGetters} from 'vuex'
 import CommentForm from "../components/CommentForm";
 
-
 export default {
     name: "Article",
     computed: mapGetters(['articleText']),
@@ -31,7 +30,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

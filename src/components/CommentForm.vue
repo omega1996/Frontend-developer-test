@@ -1,16 +1,18 @@
 <template>
-    <div> Добавить комментарий
+    <div class="addComment">
         <form action="">
-            <label> Имя
-                <input type="text">
-            </label>
-            <label> E-mail
-                <input type="text">
-            </label>
-            <label> Текст комментария
-                <textarea name="CommentText" id="" cols="30" rows="10">
+            <fieldset>
+                <legend>Добавить комментарий</legend>
+                <label for="name"> Имя </label>
+                <input id="name" type="text">
+                <label for="email"> E-mail </label>
+                <input id="email" type="text">
+
+                <label for="commentText"> Текст комментария </label>
+                <textarea name="CommentText" id="commentText" cols="100" rows="7">
                 </textarea>
-            </label>
+                <button>Добавить комментарий</button>
+            </fieldset>
         </form>
     </div>
 </template>
