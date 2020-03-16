@@ -10,14 +10,18 @@
         <div>
             {{articleText}}
         </div>
-        <comment-form></comment-form>
-
+        <div class="article-comments">
+            <h3>Комментарии:</h3>
+            <comment-template></comment-template>
+            <comment-form></comment-form>
+        </div>
     </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 import CommentForm from "../components/CommentForm";
+import CommentTemplate from "../components/CommentTemplate";
 
 export default {
     name: "Article",
@@ -26,7 +30,8 @@ export default {
         return{}
     },
     components:{
-        CommentForm
+        CommentForm,
+        CommentTemplate
     }
 }
 </script>
