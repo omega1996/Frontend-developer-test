@@ -2,12 +2,8 @@
     <div class="article-comments">
         <h3>Комментарии:</h3>
 
-        <comment-template v-for="comment in allMockComments" :key="comment.id" :level="0">{{comment}}</comment-template>
-        <comment-template :level="1"></comment-template>
-        <comment-template :level="2"></comment-template>
-        <comment-template :level="0"></comment-template>
-        <comment-template :level="1"></comment-template>
-        <comment-template :level="0"></comment-template>
+        <comment-template v-for="comment in allMockComments" :key="comment.id" :level="comment.level"></comment-template>
+
         <comment-form></comment-form>
     </div>
 </template>
@@ -27,7 +23,7 @@ export default {
         CommentTemplate,
         CommentForm
     }
-    }
+}
 </script>
 
 <style scoped>
