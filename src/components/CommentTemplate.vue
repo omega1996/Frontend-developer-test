@@ -29,15 +29,15 @@
 </template>
 
 <script>
-    export default {
-        name: "CommentTemplate",
-        props:{
-            level: {
-                type: Number,
-                default: 0
-            }
+export default {
+    name: "CommentTemplate",
+    props:{
+        level: {
+            type: Number,
+            default: 0
         }
     }
+}
 </script>
 
 <style scoped>

@@ -16,23 +16,13 @@
             <br>
             {{articleText}}
         </div>
-        <div class="article-comments">
-            <h3>Комментарии:</h3>
-            <comment-template :level="0"></comment-template>
-            <comment-template :level="1"></comment-template>
-            <comment-template :level="2"></comment-template>
-            <comment-template :level="0"></comment-template>
-            <comment-template :level="1"></comment-template>
-            <comment-template :level="0"></comment-template>
-            <comment-form></comment-form>
-        </div>
+        <comment-container></comment-container>
     </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
-import CommentForm from "../components/CommentForm";
-import CommentTemplate from "../components/CommentTemplate";
+import CommentContainer from "../components/CommentContainer";
 
 export default {
     name: "Article",
@@ -43,8 +33,7 @@ export default {
         return{}
     },
     components:{
-        CommentForm,
-        CommentTemplate
+        CommentContainer
     }
 }
 </script>
