@@ -14,6 +14,7 @@
         border: none
         padding: 5px
         grid-area: button
+        cursor: pointer
       textarea
         resize: none
         width: 600px
@@ -26,7 +27,6 @@
         margin:  5px
         float: left
 
-
 .comment
   display: flex
   &-avatar
@@ -37,6 +37,10 @@
     img
       height: 100%
       width: 100%
+  &-level-1
+    margin-left: 100px
+  &-level-2
+    margin-left: 200px
   &-body
     display: flex
     flex-direction column
@@ -46,6 +50,9 @@
       display:flex
       &-reply
         margin-left: auto
+        color: #0c5394
+        text-decoration underline
+        cursor: pointer
       &-vote
         display: flex
         border: 1px solid black

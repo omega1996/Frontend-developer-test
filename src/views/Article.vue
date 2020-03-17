@@ -9,10 +9,21 @@
 
         <div>
             {{articleText}}
+            <br>
+            <br>
+            {{articleText}}
+            <br>
+            <br>
+            {{articleText}}
         </div>
         <div class="article-comments">
             <h3>Комментарии:</h3>
-            <comment-template></comment-template>
+            <comment-template :level="0"></comment-template>
+            <comment-template :level="1"></comment-template>
+            <comment-template :level="2"></comment-template>
+            <comment-template :level="0"></comment-template>
+            <comment-template :level="1"></comment-template>
+            <comment-template :level="0"></comment-template>
             <comment-form></comment-form>
         </div>
     </div>
@@ -25,7 +36,9 @@ import CommentTemplate from "../components/CommentTemplate";
 
 export default {
     name: "Article",
-    computed: mapGetters(['articleText']),
+    computed: {
+        ...mapGetters(['articleText'])
+    },
     data(){
         return{}
     },

@@ -1,5 +1,5 @@
 <template>
-    <div class="comment">
+    <div class="comment" :class="'comment-level-'+level">
         <div class="comment-avatar">
             <img src="../assets/empty-avatar.png" alt="avatar">
         </div>
@@ -30,7 +30,13 @@
 
 <script>
     export default {
-        name: "CommentTemplate"
+        name: "CommentTemplate",
+        props:{
+            level: {
+                type: Number,
+                default: 0
+            }
+        }
     }
 </script>
 
