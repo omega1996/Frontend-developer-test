@@ -8,7 +8,7 @@ export default {
                 id: 0,
                 reply: 0,
                 rating: 0,
-                comment: 'lorem',
+                text: 'lorem',
                 userName: 'Lorem Ipsum',
                 timeStamp: 1584420823049
             },
@@ -16,7 +16,7 @@ export default {
                 id: 1,
                 reply: 0,
                 rating: 1,
-                comment: 'lorem Ipsum',
+                text: 'lorem Ipsum',
                 userName: 'Lorem Ipsum',
                 timeStamp: 1584420823049
             },
@@ -24,7 +24,7 @@ export default {
                 id: 2,
                 reply: 1,
                 rating: 0,
-                comment: 'lorem',
+                text: 'lorem',
                 userName: 'Lorem Ipsum',
                 timeStamp: 1584420823049
             },
@@ -32,7 +32,7 @@ export default {
                 id: 4,
                 reply: 4,
                 rating: 2,
-                comment: 'lorem',
+                text: 'lorem ipsum dolor sit amet',
                 userName: 'Lorem Ipsum',
                 timeStamp: 1584420823049
             },
