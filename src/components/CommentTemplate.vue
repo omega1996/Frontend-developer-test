@@ -1,6 +1,7 @@
 <template>
     <div>
-        <button :class="'comment-level-'+comment.level" v-if="isClosed" @click="isClosed=false">Открыть комментарий</button>
+        <button :class="'comment-level-'+comment.level" v-if="isClosed" @click="isClosed=false">Открыть комментарий
+        </button>
         <div class="comment" :class="'comment-level-'+comment.level" v-else>
             <div class="comment-avatar">
                 <img src="../assets/empty-avatar.png" alt="avatar">
@@ -8,9 +9,9 @@
             <div class="comment-body">
                 <div class="comment-body-nav">
                     <router-link class="comment-body-nav-name" to="/">{{ comment.userName }}</router-link>
-                    <div class="comment-body-nav-time">Час назад</div>
+                    <div class="comment-body-nav-time">{{timeFromNow}}</div>
                     <div class="comment-body-nav-vote">
-                        <button @click="increaseRating(comment.id)" >+</button>
+                        <button @click="increaseRating(comment.id)">+</button>
                         <button>{{ comment.rating }}</button>
                         <button @click="decreaseRating(comment.id)">-</button>
                     </div>
@@ -25,34 +26,58 @@
 </template>
 
 <script>
+
 export default {
     name: "CommentTemplate",
-
-    data(){
+    watch: {
+        currentTime(){
+            console.log(Date.now())
+        }
+    },
+    computed: {
+        timeFromNow() {
+            let seconds = Math.floor((this.time - this.comment.timeStamp) / 1000);
+            let minutes = Math.floor(seconds / 60);
+            let hours = Math.floor(minutes / 60);
+            let days = Math.floor(hours / 24);
+            if (days > 0) {
+                return days + ' дней назад'
+            } else if (hours > 0) {
+                return hours + ' часов назад'
+            } else {
+                return minutes + ' минут назад'
+            }
+        }
+    },
+    data() {
         return {
             isClosed: false
         }
     },
-    methods:{
-        increaseRating(id){
+    methods: {
+        increaseRating(id) {
             this.$store.commit('increment', id)
         },
-        decreaseRating(id){
+        decreaseRating(id) {
             this.$store.commit('decrement', id);
-            if (this.comment.rating  < -10){
+            if (this.comment.rating < -10) {
                 this.isClosed = true
             }
         }
     },
-    mounted () {
-        if(this.comment.rating<-10){
+    mounted() {
+        if (this.comment.rating < -10) {
             this.isClosed = true
         }
     },
     props: {
-        comment:{
+        comment: {
             type: Object,
-            default: ()=>[]
+            default: () => []
+        },
+        time:{
+            type: Number,
+            default: 0
         }
     }
 }

@@ -4,7 +4,8 @@
 
         <comment-template v-for="comment in allMockComments"
                           :key="comment.id"
-                          :comment="comment">
+                          :comment="comment"
+                          :time="currentTime">
             {{ comment.text }}
         </comment-template>
 
@@ -26,6 +27,28 @@ export default {
     components:{
         CommentTemplate,
         CommentForm
+    },
+    data() {
+        return{
+            currentTime: Date.now(),
+            timer: null
+        }
+    },
+    mounted() {
+        this.startTimer()
+    },
+    destroyed() {
+        this.stopTimer()
+    },
+    methods: {
+        startTimer() {
+            this.timer = setInterval(() => {
+                this.currentTime += 1000
+            }, 1000)
+        },
+        stopTimer() {
+            clearTimeout(this.timer)
+        },
     }
 }
 </script>

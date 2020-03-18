@@ -41,7 +41,7 @@ export default {
                 rating: 2,
                 text: 'lorem ipsum dolor sit amet',
                 userName: 'Lorem Ipsum',
-                timeStamp: 1584420823049
+                timeStamp: 1584540000000
             },
             {
                 id: 5,
@@ -49,7 +49,7 @@ export default {
                 rating: -11,
                 text: 'lorem ipsum dolor sit amet reply to first',
                 userName: 'Lorem Ipsum',
-                timeStamp: 1584420823049
+                timeStamp: 1584400000000
             },
             {
                 id: 6,
@@ -58,7 +58,7 @@ export default {
                 text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae, ' +
                     'blanditiis deleniti dignissimos doloribus eveniet fuga fugiat iure quibusdam quos velit.',
                 userName: 'Lorem Ipsum',
-                timeStamp: 1584420823049
+                timeStamp: 1584000000000
             },
             {
                 id: 7,
