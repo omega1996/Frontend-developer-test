@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button :class="'comment-level-'+comment.level" v-if="isClosed">Открыть комментарий</button>
+        <button :class="'comment-level-'+comment.level" v-if="isClosed" @click="isClosed=false">Открыть комментарий</button>
         <div class="comment" :class="'comment-level-'+comment.level" v-else>
             <div class="comment-avatar">
                 <img src="../assets/empty-avatar.png" alt="avatar">
@@ -38,7 +38,10 @@ export default {
             this.$store.commit('increment', id)
         },
         decreaseRating(id){
-            this.$store.commit('decrement', id)
+            this.$store.commit('decrement', id);
+            if (this.comment.rating  < -10){
+                this.isClosed = true
+            }
         }
     },
     mounted () {
