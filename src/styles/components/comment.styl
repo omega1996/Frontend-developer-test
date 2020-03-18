@@ -1,12 +1,14 @@
 .addComment
   form
     margin-top: 20px;
+
     fieldset
       display: grid
       border: 2px solid black
       grid-template-columns 1fr 2fr
       grid-template-areas: "label area" "label area" "label area" ". button"
       grid-row-gap: 10px;
+
       button
         width: 170px
         color: #fff
@@ -15,59 +17,84 @@
         padding: 5px
         grid-area: button
         cursor: pointer
+
       textarea
         resize: none
         width: 600px
         border 2px solid black
+
       input
         padding-left: 5px
         width: 200px
         border: 2px solid black
+
       label
-        margin:  5px
+        margin: 5px
         float: left
+
+.collapsed
+  height: 50px !important
+  width: 50px !important
 
 .comment
   display: flex
+
   &-avatar
     width: 80px
     height: 80px
     margin: 10px
     border: 1px solid black
+
     img
       height: 100%
       width: 100%
+
   &-level-1
     margin-left: 100px
+
   &-level-2
     margin-left: 200px
+
   &-body
     display: flex
     flex-direction column
     margin: 10px
     width: 100%
+
     &-nav
-      display:flex
-      &-reply
+      display: flex
+
+      &-hide
         margin-left: auto
         color: #0c5394
         text-decoration underline
         cursor: pointer
+        margin-right: 10px
+
+      &-reply
+        color: #0c5394
+        text-decoration underline
+        cursor: pointer
+
       &-vote
         display: flex
         border: 1px solid black
         border-radius: 3px
+
         button
           border: none
           height: 20px
           width: 32px
           cursor: pointer
+
           &:first-child
             border-right: 1px solid black
             border-radius: 3px 0 0 3px
+
           &:last-child
             border-left: 1px solid black
             border-radius: 0 3px 3px 0
+
       &-time
         text-align center
         width 100px
@@ -76,6 +103,7 @@
         font-size: 12px
         margin-left: 10px
         margin-right: 10px
+
     &-text
       margin-top: 10px
       font-size: 12px

@@ -2,9 +2,10 @@
     <div>
         <button :class="'comment-level-' + comment.level" v-if="isClosed" @click="isClosed=false">Открыть комментарий
         </button>
-        <div class="comment" :class="'comment-level-' + comment.level" v-else>
-            <div class="comment-avatar">
-                <img src="../assets/empty-avatar.png" alt="avatar">
+        <div class="comment" @mouseenter="showHideButton" @mouseleave="hideHideButton"
+             :class="'comment-level-' + comment.level" v-else>
+            <div class="comment-avatar" :class="{collapsed: comment.hidden}">
+                <img src="../assets/empty-avatar.png" :class="{collapsed: comment.hidden}" alt="avatar">
             </div>
             <div class="comment-body">
                 <div class="comment-body-nav">
@@ -15,10 +16,11 @@
                         <button>{{ comment.rating }}</button>
                         <button @click="decreaseRating(comment.id)">-</button>
                     </div>
+                    <div class="comment-body-nav-hide" @click="hideComment(comment.id)" :style="isHideVisible?'visibility: hidden':''">{{comment.hidden?'Раскрыть':'Скрыть'}}</div>
                     <div class="comment-body-nav-reply" @click="isReplying = !isReplying">Ответить</div>
                 </div>
                 <div class="comment-body-text">
-                    <slot></slot>
+                    <slot v-if="!comment.hidden"></slot>
                 </div>
             </div>
         </div>
@@ -54,10 +56,20 @@
         data() {
             return {
                 isClosed: false,
-                isReplying: false
+                isReplying: false,
+                isHideVisible: true
             }
         },
         methods: {
+            hideComment(id){
+                this.$store.commit('hideComment', id)
+            },
+            showHideButton() {
+                this.isHideVisible = false
+            },
+            hideHideButton() {
+                this.isHideVisible = true
+            },
             increaseRating(id) {
                 this.$store.commit('increment', id)
             },
