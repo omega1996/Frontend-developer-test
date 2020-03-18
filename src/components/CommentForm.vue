@@ -21,6 +21,9 @@
 <script>
     export default {
         name: "CommentForm",
+        props: {
+            replyTo: Number
+        },
         data() {
             return {
                 name: '',
@@ -50,6 +53,7 @@
             },
             postComment() {
                 this.$store.commit('addComment', {
+                    reply: this.replyTo ? this.replyTo : undefined,
                     text: this.commentText,
                     userName: this.name,
                 });
@@ -57,6 +61,7 @@
                 this.commentText = '';
                 this.email = '';
                 this.sent = true;
+                this.$emit('commentSent')
             }
         }
     }

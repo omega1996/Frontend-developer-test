@@ -1,8 +1,8 @@
 <template>
     <div>
-        <button :class="'comment-level-'+comment.level" v-if="isClosed" @click="isClosed=false">Открыть комментарий
+        <button :class="'comment-level-' + comment.level" v-if="isClosed" @click="isClosed=false">Открыть комментарий
         </button>
-        <div class="comment" :class="'comment-level-'+comment.level" v-else>
+        <div class="comment" :class="'comment-level-' + comment.level" v-else>
             <div class="comment-avatar">
                 <img src="../assets/empty-avatar.png" alt="avatar">
             </div>
@@ -15,72 +15,75 @@
                         <button>{{ comment.rating }}</button>
                         <button @click="decreaseRating(comment.id)">-</button>
                     </div>
-                    <div class="comment-body-nav-reply">Ответить</div>
+                    <div class="comment-body-nav-reply" @click="isReplying = !isReplying">Ответить</div>
                 </div>
                 <div class="comment-body-text">
                     <slot></slot>
                 </div>
             </div>
         </div>
+        <comment-form @commentSent="isReplying=false" v-if="isReplying"
+                      :class="'comment-level-' + comment.level"
+                      :reply-to="comment.id"></comment-form>
     </div>
 </template>
 
 <script>
+    import CommentForm from "./CommentForm";
 
-export default {
-    name: "CommentTemplate",
-    watch: {
-        currentTime(){
-            console.log(Date.now())
-        }
-    },
-    computed: {
-        timeFromNow() {
-            let seconds = Math.floor((this.time - this.comment.timeStamp) / 1000);
-            let minutes = Math.floor(seconds / 60);
-            let hours = Math.floor(minutes / 60);
-            let days = Math.floor(hours / 24);
-            if (days > 0) {
-                return days + ' дней назад'
-            } else if (hours > 0) {
-                return hours + ' часов назад'
-            } else {
-                return minutes + ' минут назад'
-            }
-        }
-    },
-    data() {
-        return {
-            isClosed: false
-        }
-    },
-    methods: {
-        increaseRating(id) {
-            this.$store.commit('increment', id)
+    export default {
+        name: "CommentTemplate",
+        components: {
+            CommentForm
         },
-        decreaseRating(id) {
-            this.$store.commit('decrement', id);
+        computed: {
+            timeFromNow() {
+                let seconds = Math.floor((this.time - this.comment.timeStamp) / 1000);
+                let minutes = Math.floor(seconds / 60);
+                let hours = Math.floor(minutes / 60);
+                let days = Math.floor(hours / 24);
+                if (days > 0) {
+                    return days + ' дней назад'
+                } else if (hours > 0) {
+                    return hours + ' часов назад'
+                } else {
+                    return minutes + ' минут назад'
+                }
+            }
+        },
+        data() {
+            return {
+                isClosed: false,
+                isReplying: false
+            }
+        },
+        methods: {
+            increaseRating(id) {
+                this.$store.commit('increment', id)
+            },
+            decreaseRating(id) {
+                this.$store.commit('decrement', id);
+                if (this.comment.rating < -10) {
+                    this.isClosed = true
+                }
+            }
+        },
+        mounted() {
             if (this.comment.rating < -10) {
                 this.isClosed = true
             }
-        }
-    },
-    mounted() {
-        if (this.comment.rating < -10) {
-            this.isClosed = true
-        }
-    },
-    props: {
-        comment: {
-            type: Object,
-            default: () => []
         },
-        time:{
-            type: Number,
-            default: 0
+        props: {
+            comment: {
+                type: Object,
+                default: () => []
+            },
+            time: {
+                type: Number,
+                default: 0
+            }
         }
     }
-}
 </script>
 
 <style scoped>
