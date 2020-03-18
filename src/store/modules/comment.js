@@ -1,6 +1,13 @@
 export default {
     actions: {},
-    mutations: {},
+    mutations: {
+        increment(state, commentId){
+            state.mockComments.find(x => x.id === commentId).rating += 1
+        },
+        decrement(state, commentId){
+            state.mockComments.find(x => x.id === commentId).rating -= 1
+        }
+    },
     state: {
         comments: [],
         mockComments: [
@@ -77,7 +84,7 @@ export default {
         },
         allMockComments(state){
             let answer =[];
-            state.mockComments.map((element) => {
+            state.mockComments.forEach((element) => {
                 if (element.reply === element.id) {
                     element.level = 0;
                     answer.push(element)
@@ -90,9 +97,7 @@ export default {
                         element.level = 2
                     }
                     answer.splice(parentIndex,0,element)
-
                 }
-                return element
             });
             return answer.reverse()
         }
