@@ -1,17 +1,17 @@
 <template>
     <div>
-        <button :class="'comment-level-'+level" v-if="badKarma">Показать комментарий</button>
-        <div class="comment" :class="'comment-level-'+level" v-else>
+        <button :class="'comment-level-'+comment.level" v-if="badKarma">Показать комментарий</button>
+        <div class="comment" :class="'comment-level-'+comment.level" v-else>
             <div class="comment-avatar">
                 <img src="../assets/empty-avatar.png" alt="avatar">
             </div>
             <div class="comment-body">
                 <div class="comment-body-nav">
-                    <router-link class="comment-body-nav-name" to="/">{{ authorName }}</router-link>
+                    <router-link class="comment-body-nav-name" to="/">{{ comment.userName }}</router-link>
                     <div class="comment-body-nav-time">Час назад</div>
                     <div class="comment-body-nav-vote">
                         <button>+</button>
-                        <button>{{ rating }}</button>
+                        <button>{{ comment.rating }}</button>
                         <button>-</button>
                     </div>
                     <div class="comment-body-nav-reply">Ответить</div>
@@ -29,21 +29,13 @@ export default {
     name: "CommentTemplate",
     computed: {
         badKarma() {
-            return this.rating < -10
+            return this.comment.rating < -10
         }
     },
     props: {
-        level: {
-            type: Number,
-            default: 0
-        },
-        authorName: {
-            type: String,
-            default: ''
-        },
-        rating: {
-            type: Number,
-            default: 0
+        comment:{
+            type: Object,
+            default: ()=>[]
         }
     }
 }

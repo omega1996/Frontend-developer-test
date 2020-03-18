@@ -4,9 +4,7 @@
 
         <comment-template v-for="comment in allMockComments"
                           :key="comment.id"
-                          :level="comment.level"
-                          :authorName="comment.userName"
-                          :rating="comment.rating">
+                          :comment="comment">
             {{ comment.text }}
         </comment-template>
 
