@@ -9,7 +9,7 @@
                 <div class="comment-body-nav-time">Час назад</div>
                 <div class="comment-body-nav-vote">
                     <button>+</button>
-                    <button>+1</button>
+                    <button>{{ rating }}</button>
                     <button>-</button>
                 </div>
                 <div class="comment-body-nav-reply">Ответить</div>
@@ -32,6 +32,10 @@ export default {
         authorName: {
             type: String,
             default: ''
+        },
+        rating: {
+            type: Number,
+            default: 0
         }
     }
 }
