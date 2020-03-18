@@ -46,7 +46,7 @@ export default {
             {
                 id: 5,
                 reply: 0,
-                rating: 2,
+                rating: -11,
                 text: 'lorem ipsum dolor sit amet reply to first',
                 userName: 'Lorem Ipsum',
                 timeStamp: 1584420823049

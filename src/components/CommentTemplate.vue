@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button :class="'comment-level-'+comment.level" v-if="badKarma">Открыть комментарий</button>
+        <button :class="'comment-level-'+comment.level" v-if="isClosed">Открыть комментарий</button>
         <div class="comment" :class="'comment-level-'+comment.level" v-else>
             <div class="comment-avatar">
                 <img src="../assets/empty-avatar.png" alt="avatar">
@@ -27,9 +27,10 @@
 <script>
 export default {
     name: "CommentTemplate",
-    computed: {
-        badKarma() {
-            return this.comment.rating < -10
+
+    data(){
+        return {
+            isClosed: false
         }
     },
     methods:{
@@ -38,6 +39,11 @@ export default {
         },
         decreaseRating(id){
             this.$store.commit('decrement', id)
+        }
+    },
+    mounted () {
+        if(this.comment.rating<-10){
+            this.isClosed = true
         }
     },
     props: {
