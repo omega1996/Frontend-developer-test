@@ -1,6 +1,7 @@
 <template>
     <div class="addComment">
         <div style="color:red" v-for="error in errors" v-bind:key="error">{{error}}</div>
+        <div style="color:green" v-if="sent">Комментарий успешно добавлен!</div>
         <form action="">
             <fieldset>
                 <legend>Добавить комментарий</legend>
@@ -25,7 +26,8 @@
                 name: '',
                 email: '',
                 commentText: '',
-                errors: []
+                errors: [],
+                sent: false
             }
         },
         methods: {
@@ -42,15 +44,20 @@
                 if (!this.commentText) {
                     this.errors.push('Требуется указать текст комментария.');
                 }
-                //
                 if (this.errors.length < 1) {
                     this.postComment()
                 }
             },
             postComment() {
-                console.log('ok')
+                this.$store.commit('addComment', {
+                    text: this.commentText,
+                    userName: this.name,
+                });
+                this.name = '';
+                this.commentText = '';
+                this.email = '';
+                this.sent = true;
             }
-
         }
     }
 </script>

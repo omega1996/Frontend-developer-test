@@ -6,6 +6,15 @@ export default {
         },
         decrement(state, commentId){
             state.mockComments.find(x => x.id === commentId).rating -= 1
+        },
+        addComment(state, comment){
+            comment.id = Math.max(...state.mockComments.map( x => x.id))+1;
+            comment.rating = 0;
+            if (!comment.reply){
+                comment.reply = comment.id
+            }
+            comment.timeStamp = Date.now();
+            state.mockComments.push(comment)
         }
     },
     state: {
