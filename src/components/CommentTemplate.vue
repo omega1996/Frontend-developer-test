@@ -5,7 +5,7 @@
         </div>
         <div class="comment-body">
             <div class="comment-body-nav">
-                <router-link class="comment-body-nav-name" to="/">Lorem ipsum.</router-link>
+                <router-link class="comment-body-nav-name" to="/">{{ authorName }}</router-link>
                 <div class="comment-body-nav-time">Час назад</div>
                 <div class="comment-body-nav-vote">
                     <button>+</button>
@@ -28,6 +28,10 @@ export default {
         level: {
             type: Number,
             default: 0
+        },
+        authorName: {
+            type: String,
+            default: ''
         }
     }
 }

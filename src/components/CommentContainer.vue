@@ -2,7 +2,10 @@
     <div class="article-comments">
         <h3>Комментарии:</h3>
 
-        <comment-template v-for="comment in allMockComments" :key="comment.id" :level="comment.level">
+        <comment-template v-for="comment in allMockComments"
+                          :key="comment.id"
+                          :level="comment.level"
+                          :authorName="comment.userName">
             {{ comment.text }}
         </comment-template>
 

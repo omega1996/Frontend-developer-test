@@ -9,7 +9,7 @@ export default {
                 reply: 0,
                 rating: 0,
                 text: 'lorem first',
-                userName: 'Lorem Ipsum',
+                userName: 'Lorem Dolor',
                 timeStamp: 1584420823049
             },
             {
@@ -17,7 +17,7 @@ export default {
                 reply: 0,
                 rating: 1,
                 text: 'lorem Ipsum second reply to first',
-                userName: 'Lorem Ipsum',
+                userName: 'Dolor Ipsum',
                 timeStamp: 1584420823049
             },
             {
@@ -25,7 +25,7 @@ export default {
                 reply: 1,
                 rating: 0,
                 text: 'lorem me reply to second',
-                userName: 'Lorem Ipsum',
+                userName: 'Sit Amet Ipsum',
                 timeStamp: 1584420823049
             },
             {
