@@ -1,9 +1,29 @@
 function parse(value) {
-    let regExp = /\*\*\*.*\*\*\*/gi;
+    let regExps = [
+        {
+            re: /\*{3}((\w)*(\s)*)*\*{3}/gi,
+            tagBefore: '<b><i>',
+            tagAfter: '</i></b>'
+        },
+        {
+            re: /\*{2}((\w)*(\s)*)*\*{2}/gi,
+            tagBefore: '<b>',
+            tagAfter: '</b>'
+        },
+        {
+            re: /\*((\w)*(\s)*)*\*/gi,
+            tagBefore: '<i>',
+            tagAfter: '</i>'
+        }
+    ];
 
-    return value.replace(regExp, (matched)=>{
-        return '<b>'+matched.slice(3, matched.length-3)+'</b>'
-    })
+    for (let regExp of regExps) {
+        value = value.replace(regExp.re, (matched, inside) => {
+            return regExp.tagBefore + inside + regExp.tagAfter
+        });
+    }
+
+    return value
 }
 
 export default parse

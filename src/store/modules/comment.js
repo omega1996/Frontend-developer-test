@@ -37,7 +37,7 @@ export default {
                 id: 1,
                 reply: 0,
                 rating: 1,
-                text: 'lorem Ipsum second reply to first',
+                text: 'lorem Ipsum *second* reply to first',
                 userName: 'Dolor Ipsum',
                 timeStamp: 1584420823049,
                 hidden: false
@@ -46,7 +46,7 @@ export default {
                 id: 2,
                 reply: 1,
                 rating: 0,
-                text: 'lorem me reply to second',
+                text: 'lorem me **reply** to second',
                 userName: 'Sit Amet Ipsum',
                 timeStamp: 1584420823049,
                 hidden: false
