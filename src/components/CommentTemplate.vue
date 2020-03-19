@@ -19,7 +19,9 @@
                     <div class="comment-body-nav-hide" @click="hideComment(comment.id)"
                          :style="isHideVisible?'visibility: hidden':''">{{comment.hidden?'Раскрыть':'Скрыть'}}
                     </div>
-                    <div class="comment-body-nav-reply" @click="isReplying = !isReplying">Ответить</div>
+                    <div class="comment-body-nav-reply" v-if="comment.level<2" @click="isReplying = !isReplying">
+                        Ответить
+                    </div>
                 </div>
                 <div class="comment-body-text">
                     <div v-if="!comment.hidden" v-html="parsedText">
