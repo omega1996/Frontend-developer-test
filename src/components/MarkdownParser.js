@@ -16,6 +16,14 @@ function parse(value) {
             tagAfter: '</i>'
         }
     ];
+    for (let i = 6 ; i > 0; i--){
+        let obj = {
+            re: new RegExp(`#{${i}}((\\w)*(\\s)*)*#{${i}}`,'gi'),
+            tagBefore: `<h${i}>`,
+            tagAfter: `</h${i}>`
+        };
+        regExps.push(obj)
+    }
 
     for (let regExp of regExps) {
         value = value.replace(regExp.re, (matched, inside) => {
