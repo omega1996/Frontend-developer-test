@@ -23,6 +23,11 @@ function parse(value) {
         });
     }
 
+    // checking for line-separator
+    value = value.replace(/---/gi, () => {
+        return '<hr>'
+    });
+
     // checking for links and images
 
     let processMatched = function (matched, typeTag) {
@@ -34,19 +39,19 @@ function parse(value) {
         } else {
             text = link;
         }
-        if (typeTag === 'img'){
+        if (typeTag === 'img') {
             return `<img src="${link}" alt="${text}">`
-        } else if (typeTag === 'a'){
+        } else if (typeTag === 'a') {
             return `<a href="${link}">` + text + '</a>'
         }
 
     };
 
     let imgRe = /(![[](.*?)[\]])\(.*?\)/;
-    value = value.replace(imgRe, (matched) => processMatched(matched,'img'));
+    value = value.replace(imgRe, (matched) => processMatched(matched, 'img'));
 
     let linkRe = /([[](.*?)[\]])?\(.*?\)/gi;
-    value = value.replace(linkRe, (matched) => processMatched(matched,'a'));
+    value = value.replace(linkRe, (matched) => processMatched(matched, 'a'));
 
     return value
 }
