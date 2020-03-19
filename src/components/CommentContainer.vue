@@ -5,8 +5,7 @@
         <comment-template v-for="comment in allMockComments"
                           :key="comment.id"
                           :comment="comment"
-                          :time="currentTime">
-            {{ comment.text }}
+                          :time="currentTime" >
         </comment-template>
 
         <comment-form></comment-form>

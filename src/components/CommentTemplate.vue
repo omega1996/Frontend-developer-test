@@ -16,11 +16,14 @@
                         <button>{{ comment.rating }}</button>
                         <button @click="decreaseRating(comment.id)">-</button>
                     </div>
-                    <div class="comment-body-nav-hide" @click="hideComment(comment.id)" :style="isHideVisible?'visibility: hidden':''">{{comment.hidden?'Раскрыть':'Скрыть'}}</div>
+                    <div class="comment-body-nav-hide" @click="hideComment(comment.id)"
+                         :style="isHideVisible?'visibility: hidden':''">{{comment.hidden?'Раскрыть':'Скрыть'}}
+                    </div>
                     <div class="comment-body-nav-reply" @click="isReplying = !isReplying">Ответить</div>
                 </div>
                 <div class="comment-body-text">
-                    <slot v-if="!comment.hidden"></slot>
+                    <div v-if="!comment.hidden" v-html="parsedText">
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,6 +42,9 @@
             CommentForm
         },
         computed: {
+            parsedText() {
+                return this.markdown(this.comment.text)
+            },
             timeFromNow() {
                 let seconds = Math.floor((this.time - this.comment.timeStamp) / 1000);
                 let minutes = Math.floor(seconds / 60);
@@ -61,7 +67,7 @@
             }
         },
         methods: {
-            hideComment(id){
+            hideComment(id) {
                 this.$store.commit('hideComment', id)
             },
             showHideButton() {

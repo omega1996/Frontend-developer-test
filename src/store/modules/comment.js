@@ -28,7 +28,7 @@ export default {
                 id: 0,
                 reply: 0,
                 rating: 0,
-                text: 'lorem first',
+                text: 'lorem ***first*** Ipsum',
                 userName: 'Lorem Dolor',
                 timeStamp: 1584420823049,
                 hidden: false
