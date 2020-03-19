@@ -57,7 +57,12 @@
                 } else if (hours > 0) {
                     return hours + ' часов назад'
                 } else {
-                    return minutes + ' минут назад'
+                    if (seconds<10){
+                        return 'только что'
+                    } else {
+                        return minutes + ' минут назад'
+                    }
+
                 }
             }
         },
