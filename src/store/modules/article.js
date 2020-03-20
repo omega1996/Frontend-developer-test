@@ -24,16 +24,16 @@ you can mark headers by # symbol:
 ##### header 5 
 ###### header 6 
 or even use horizontal line
- ---
- 
- you can attach [links](google.com) without description (google.com)  
- and images ![images](https://img.icons8.com/cotton/2x/thumb-up.png)
- ---
- ## things that are not supported yet:  
- 1. lists and numbered lists  
- 2. screening with backslash (\\)  
- 3. tables  
- 4. footnotes
+---
+
+you can attach [links](google.com) without description (google.com)  
+and images ![images](https://img.icons8.com/cotton/2x/thumb-up.png)
+---
+## things that are not supported yet:  
+1. lists and numbered lists  
+2. screening with backslash (\\)  
+3. tables  
+4. footnotes
 `
     },
     getters: {
