@@ -1,9 +1,4 @@
 function parse(value) {
-    // line breaks
-    value = value.replace(/\n/gi, () => {
-        return '<br>'
-    });
-
     // italic, bold and bold-italic text
     let regExps = [
         {
@@ -78,6 +73,10 @@ function parse(value) {
     let linkRe = /([[](.*?)[\]])?\(.*?\)/gi;
     value = value.replace(linkRe, (matched) => processMatched(matched, 'a'));
 
+    // line breaks
+    value = value.replace(/\n/gi, () => {
+        return '<br>'
+    });
     return value
 }
 
