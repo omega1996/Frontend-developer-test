@@ -11,7 +11,7 @@ function parse(value) {
             tagAfter: '</b>'
         },
         {
-            re: /\*((\w)*(\s)*)*\*/gi,
+            re: /\*((\w)*(\s)*)*\*|_((\w)*(\s)*)*_/gi,
             tagBefore: '<i>',
             tagAfter: '</i>'
         }
