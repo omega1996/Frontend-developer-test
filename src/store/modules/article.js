@@ -2,14 +2,39 @@ export default {
     actions: {},
     mutations: {},
     state: {
-        article: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Accusantium aliquam aliquid amet asperiores blanditiis consequuntur cumque dolorum enim eum
-            facilis fuga id inventore laboriosam libero modi mollitia neque nobis nulla odit officiis, pariatur
-            perspiciatis porro quae quas quasi rem repudiandae sint soluta tempora tempore totam, vero voluptate voluptates?
-            Facilis ipsam numquam quisquam rem similique. Ab aperiam cum harum nemo placeat? Asperiores dicta esse id incidunt
-            molestiae nemo quis repellat tempore ullam unde! Ab dolorum impedit modi nostrum provident quisquam sint!
-            Aliquam architecto at delectus, dicta distinctio dolor doloribus ea error eveniet facilis inventore natus
-            nulla porro recusandae sapiente tenetur voluptatum.`
+        article: `
+Lorem ipsum dolor sit amet, 
+consectetur adipisicing elit. Accusamus asperiores aspernatur, 
+assumenda fugit itaque magnam magni quas quibusdam? Ea error 
+excepturi illum, ipsa ipsam laborum libero magni maiores necessitatibus nesciunt, 
+obcaecati odit officiis optio reprehenderit sequi similique, temporibus. Corporis 
+eligendi iure nobis non nostrum odit omnis, quas quia sit totam? Alias aperiam atque 
+distinctio ea eaque eos error fuga, illum necessitatibus obcaecati officia, officiis quaerat, 
+qui soluta temporibus veniam voluptates? Modi nobis praesentium quas quibusdam voluptatibus. 
+Consectetur eaque exercitationem pariatur quos unde! Asperiores autem eius, enim incidunt minima 
+necessitatibus nemo quasi quisquam rem repellendus. Cumque explicabo pariatur temporibus vitae voluptate?  
+This article also supports markdown! 
+As example, you can do your text *italic*, **bold**, or ***italic bold*** as like it works in MD.
+you can highlight your code using backquotes \` like that \`
+you can mark headers, like that
+# header 1 
+## header 2 
+### header 3 
+#### header 4 
+##### header 5 
+###### header 6 
+or even use horizontal line
+ ---
+ 
+ you can attach [links](google.com) without description (google.com)  
+ and images ![images](https://img.icons8.com/cotton/2x/thumb-up.png)
+ ---
+ ## things that are not supported yet:
+ 1. lists and numbered lists
+ 2. screening with backslash (\\)
+ 3. tables
+ 4. footnotes
+`
     },
     getters: {
         articleText(state){

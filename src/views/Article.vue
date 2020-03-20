@@ -7,14 +7,8 @@
             quod temporibus ut vero.</router-link>
         <div class="article-date">01/01/2014</div>
 
-        <div>
-            {{articleText}}
-            <br>
-            <br>
-            {{articleText}}
-            <br>
-            <br>
-            {{articleText}}
+        <div v-html="markdowned">
+
         </div>
         <comment-container></comment-container>
     </div>
@@ -27,7 +21,10 @@ import CommentContainer from "../components/CommentContainer";
 export default {
     name: "Article",
     computed: {
-        ...mapGetters(['articleText'])
+        ...mapGetters(['articleText']),
+        markdowned (){
+            return this.markdown(this.articleText)
+        }
     },
     data(){
         return{}
