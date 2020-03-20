@@ -79,7 +79,7 @@ function parse(value) {
     value = value.replace(linkRe, (matched) => processMatched(matched, 'a'));
 
     // line breaks
-    value = value.replace(/\n/gi, () => {
+    value = value.replace(/ {2}/gi, () => {
         return '<br>'
     });
     return value
