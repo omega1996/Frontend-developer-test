@@ -11,14 +11,25 @@ function parse(value) {
             tagAfter: '</b>'
         },
         {
-            re: /\*((\w)*(\s)*)*\*|_((\w)*(\s)*)*_/gi,
+            re: /\*((\w)*(\s)*)*\*/gi,
             tagBefore: '<i>',
             tagAfter: '</i>'
+        },
+        {
+            re: /_((\w)*(\s)*)*_/gi,
+            tagBefore: '<i>',
+            tagAfter: '</i>'
+        },
+        {
+            re: /~((\w)*(\s)*)*~/gi,
+            tagBefore: '<s>',
+            tagAfter: '</s>'
         }
     ];
-    for (let i = 6 ; i > 0; i--){
+
+    for (let i = 6; i > 0; i--) {
         let obj = {
-            re: new RegExp(`#{${i}}((\\w)*(\\s)*)*#{${i}}`,'gi'),
+            re: new RegExp(`#{${i}}((\\w)*(\\s)*)*#{${i}}`, 'gi'),
             tagBefore: `<h${i}>`,
             tagAfter: `</h${i}>`
         };
@@ -27,9 +38,12 @@ function parse(value) {
 
     for (let regExp of regExps) {
         value = value.replace(regExp.re, (matched, inside) => {
+
             return regExp.tagBefore + inside + regExp.tagAfter
         });
     }
+
+    //
 
     // checking for line-separator
     value = value.replace(/---/gi, () => {
@@ -52,10 +66,9 @@ function parse(value) {
         } else if (typeTag === 'a') {
             return `<a href="${link}">` + text + '</a>'
         }
-
     };
 
-    let imgRe = /(![[](.*?)[\]])\(.*?\)/;
+    let imgRe = /(![[](.*?)[\]])\(.*?\)/gi;
     value = value.replace(imgRe, (matched) => processMatched(matched, 'img'));
 
     let linkRe = /([[](.*?)[\]])?\(.*?\)/gi;
