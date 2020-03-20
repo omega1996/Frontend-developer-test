@@ -2,27 +2,27 @@ function parse(value) {
     // italic, bold and bold-italic text
     let regExps = [
         {
-            re: /\*{3}((\w)*(\s)*)*\*{3}/gi,
+            re: /\*{3}(.*?)\*{3}/gi,
             tagBefore: '<b><i>',
             tagAfter: '</i></b>'
         },
         {
-            re: /\*{2}((\w)*(\s)*)*\*{2}/gi,
+            re: /\*{2}(.*?)\*{2}/gi,
             tagBefore: '<b>',
             tagAfter: '</b>'
         },
         {
-            re: /\*((\w)*(\s)*)*\*/gi,
+            re: /\*(.*?)\*/gi,
             tagBefore: '<i>',
             tagAfter: '</i>'
         },
         {
-            re: /_((\w)*(\s)*)*_/gi,
+            re: /_(.*?)_/gi,
             tagBefore: '<i>',
             tagAfter: '</i>'
         },
         {
-            re: /~((\w)*(\s)*)*~/gi,
+            re: /~(.*?)~/gi,
             tagBefore: '<s>',
             tagAfter: '</s>'
         },
