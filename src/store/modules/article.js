@@ -16,7 +16,7 @@ necessitatibus nemo quasi quisquam rem repellendus. Cumque explicabo pariatur te
 This article also supports markdown! 
 As example, you can do your text *italic*, **bold**, or ***italic bold*** as like it works in MD.
 you can ~hilit~ highlight your code using backquotes \` like that \`  
-you can mark headers:
+you can mark headers by # symbol:
 # header 1 
 ## header 2 
 ### header 3 

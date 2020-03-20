@@ -35,7 +35,7 @@ function parse(value) {
     // headers
     for (let i = 6; i > 0; i--) {
         let obj = {
-            re: new RegExp(`#{${i}}(.*)#*`, 'gmiu'),
+            re: new RegExp(`^#{${i}}(.*)#*`, 'gmiu'),
             tagBefore: `<h${i}>`,
             tagAfter: `</h${i}>`
         };
