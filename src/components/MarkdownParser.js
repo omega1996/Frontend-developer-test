@@ -1,4 +1,10 @@
 function parse(value) {
+    // line breaks
+    value = value.replace(/\n/gi, () => {
+        return '<br>'
+    });
+
+    // italic, bold and bold-italic text
     let regExps = [
         {
             re: /\*{3}((\w)*(\s)*)*\*{3}/gi,
@@ -26,7 +32,7 @@ function parse(value) {
             tagAfter: '</s>'
         }
     ];
-
+    // headers
     for (let i = 6; i > 0; i--) {
         let obj = {
             re: new RegExp(`#{${i}}((\\w)*(\\s)*)*#{${i}}`, 'gi'),
@@ -42,8 +48,6 @@ function parse(value) {
             return regExp.tagBefore + inside + regExp.tagAfter
         });
     }
-
-    //
 
     // checking for line-separator
     value = value.replace(/---/gi, () => {

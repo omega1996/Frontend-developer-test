@@ -10,7 +10,7 @@
                 <label for="email"> E-mail </label>
                 <input id="email" v-model="email" type="text">
                 <label for="commentText"> Текст комментария </label>
-                <textarea name="CommentText" id="commentText" v-model="commentText" cols="100" rows="7">
+                <textarea wrap="hard" name="CommentText" id="commentText" v-model="commentText" cols="100" rows="7">
                 </textarea>
                 <button @click="checkForm">Добавить комментарий</button>
             </fieldset>
