@@ -25,6 +25,11 @@ function parse(value) {
             re: /~((\w)*(\s)*)*~/gi,
             tagBefore: '<s>',
             tagAfter: '</s>'
+        },
+        {
+            re: /`(.*?)`/gi,
+            tagBefore: '<span style="background: lightgray">',
+            tagAfter: '</span>'
         }
     ];
     // headers
