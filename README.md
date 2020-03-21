@@ -1,5 +1,11 @@
 # frontend-developer-test
 
+Test solution for byndyusoft company.
+
+[Here is the link to deployed on gh-pages application](https://omega1996.github.io/Frontend-developer-test/#/)
+
+
+
 ## Project setup
 ```
 npm install
@@ -19,6 +25,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
