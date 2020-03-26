@@ -55,7 +55,7 @@ let processMatched = function (matched, typeTag) {
         text = link;
     }
     if (typeTag === 'img') {
-        return `<img src="${link}" alt="${text}">`
+        return `<img src="${link}" alt="${text.slice(1)}">`
     } else if (typeTag === 'a') {
         return `<a href="${link}">` + text + '</a>'
     }
