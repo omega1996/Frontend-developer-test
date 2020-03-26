@@ -7,7 +7,7 @@
             quod temporibus ut vero.</router-link>
         <div class="article-date">01/01/2014</div>
 
-        <div v-html="markdowned">
+        <div class="article-text" v-html="markdowned">
 
         </div>
         <comment-container></comment-container>
