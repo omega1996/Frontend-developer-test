@@ -14,6 +14,7 @@ export default {
                 comment.reply = comment.id
             }
             comment.timeStamp = Date.now();
+            comment.hidden = false;
             state.mockComments.push(comment)
         },
         hideComment(state, commentId) {
