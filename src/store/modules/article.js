@@ -34,11 +34,19 @@ and images ![images](https://img.icons8.com/cotton/2x/thumb-up.png)
 2. screening with backslash (\\)  
 3. tables  
 4. footnotes
-`
+`,
+        title:`Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Cum doloremque obcaecati quisquam
+reprehenderit soluta. Alias cum iure minima molestiae
+nam nihil totam voluptatibus? Aspernatur nisi officiis
+quod temporibus ut vero.`
     },
     getters: {
         articleText(state){
             return state.article
+        },
+        articleTitle(state){
+            return state.title
         }
     }
 }
