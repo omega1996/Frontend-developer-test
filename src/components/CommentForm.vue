@@ -1,7 +1,7 @@
 <template>
     <div class="add-comment">
-        <div style="color:red" v-for="error in errors" v-bind:key="error">{{error}}</div>
-        <div style="color:green" v-if="sent">Комментарий успешно добавлен!</div>
+        <div class="error" style="color:red" v-for="error in errors" v-bind:key="error">{{error}}</div>
+        <div class="success" style="color:green" v-if="sent">Комментарий успешно добавлен!</div>
         <form action="">
             <fieldset>
                 <legend>Добавить комментарий</legend>
