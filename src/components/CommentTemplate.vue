@@ -57,7 +57,7 @@
                 } else if (hours > 0) {
                     return hours + ' часов назад'
                 } else {
-                    if (seconds<10){
+                    if (seconds < 10) {
                         return 'только что'
                     } else {
                         return minutes + ' минут назад'
@@ -101,7 +101,18 @@
         props: {
             comment: {
                 type: Object,
-                default: () => []
+                default: () => {
+                    return {
+                        id: 0,
+                        reply: 0,
+                        level: 0,
+                        rating: 0,
+                        text: '',
+                        userName: '',
+                        timeStamp: 0,
+                        hidden: false
+                    }
+                }
             },
             time: {
                 type: Number,
