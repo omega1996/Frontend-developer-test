@@ -1,5 +1,5 @@
 <template>
-    <div class="addComment">
+    <div class="add-comment">
         <div style="color:red" v-for="error in errors" v-bind:key="error">{{error}}</div>
         <div style="color:green" v-if="sent">Комментарий успешно добавлен!</div>
         <form action="">
