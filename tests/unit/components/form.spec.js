@@ -19,23 +19,25 @@ localVue.mixin({
 
 
 describe('CommentForm.vue', () => {
+    const wrapper = shallowMount(CommentForm, {
+        localVue,
+        store
+    });
+
     test('exists', () => {
-        const wrapper = shallowMount(CommentForm, {
-            localVue,
-            store
-        });
         expect(wrapper.exists()).toBe(true);
         expect(wrapper.find('.add-comment').exists()).toBeTruthy()
     });
 
     test('form validation', async () => {
-        const wrapper = shallowMount(CommentForm, {
-            localVue,
-            store
-        });
         let lengthBeforeAdd = store.getters.allMockComments.length;
-        const checkLength = function(){
+        const checkLength = () => {
             return lengthBeforeAdd === store.getters.allMockComments.length
+        };
+
+        const clickButton = async () => {
+            wrapper.find('button').trigger('click');
+            await wrapper.vm.$nextTick();
         };
 
         wrapper.find('button').trigger('click');
@@ -47,31 +49,27 @@ describe('CommentForm.vue', () => {
         expect(checkLength()).toBeTruthy();
 
         wrapper.find('#name').setValue('Lorem Ipsum');
-        wrapper.find('button').trigger('click');
-        await wrapper.vm.$nextTick();
+        await clickButton();
         expect(wrapper.vm.errors).toMatchObject(["Требуется указать правильную почту.",
             "Требуется указать текст комментария."]);
         expect(wrapper.find('.success').exists()).toBeFalsy();
         expect(checkLength()).toBeTruthy();
 
         wrapper.find('#email').setValue('Lorem Ipsum');
-        wrapper.find('button').trigger('click');
-        await wrapper.vm.$nextTick();
+        await clickButton();
         expect(wrapper.vm.errors).toMatchObject(["Требуется указать правильную почту.",
             "Требуется указать текст комментария."]);
         expect(wrapper.find('.success').exists()).toBeFalsy();
         expect(checkLength()).toBeTruthy();
 
         wrapper.find('#email').setValue('Lorem@ipsum.com');
-        wrapper.find('button').trigger('click');
-        await wrapper.vm.$nextTick();
+        await clickButton();
         expect(wrapper.vm.errors).toMatchObject(["Требуется указать текст комментария."]);
         expect(wrapper.find('.success').exists()).toBeFalsy();
         expect(checkLength()).toBeTruthy();
 
         wrapper.find('#commentText').setValue('Lorem Ipsum Dolor Sit Amet');
-        wrapper.find('button').trigger('click');
-        await wrapper.vm.$nextTick();
+        await clickButton();
         expect(wrapper.vm.errors).toMatchObject([]);
         expect(wrapper.find('.success').exists()).toBeTruthy();
         expect(checkLength()).toBeFalsy();
