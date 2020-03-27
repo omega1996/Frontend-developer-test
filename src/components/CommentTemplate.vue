@@ -62,7 +62,6 @@
                     } else {
                         return minutes + ' минут назад'
                     }
-
                 }
             }
         },
@@ -93,7 +92,7 @@
                 }
             }
         },
-        mounted() {
+        beforeMount() {
             if (this.comment.rating < -10) {
                 this.isClosed = true
             }
